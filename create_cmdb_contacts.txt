@@ -1,0 +1,19 @@
+CREATE TABLE app_master_db.cmdb_contacts
+(
+  asset_name character varying(8000),
+  asset_id character varying(8000),
+  contact_person character varying(8000),
+  contact_dl character varying(8000),
+  contact_type character varying(8000)
+)
+WITH (APPENDONLY=true, 
+  OIDS=FALSE
+)
+DISTRIBUTED BY (asset_id);
+
+
+ALTER TABLE app_master_db.cmdb_contacts OWNER TO corp_it_updater;
+
+GRANT ALL ON TABLE app_master_db.cmdb_contacts TO corp_it_updater;
+
+GRANT SELECT ON TABLE app_master_db.cmdb_contacts TO corp_it_looker;

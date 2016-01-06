@@ -1,0 +1,39 @@
+
+
+CREATE TABLE app_master_db.apprepo
+(
+  business_unit_id character varying(5000),
+  owner_id character varying(5000),
+  technical_owner_email character varying(5000),
+  name character varying(5000),
+  description character varying(5000),
+  linked_sys_id character varying(5000),
+  linked_sys_app_id character varying(5000),
+  adn character varying(5000),
+  buc character varying(5000),
+  service_security character varying(5000),
+  service_tools character varying(5000),
+  risk_classification character varying(5000),
+  status character varying(5000),
+  last_updated character varying(5000),
+  created_on character varying(5000),
+  uai character varying(5000),
+  security_exceptions character varying(5000),
+  linked_system_name character varying(5000),
+  bu_name character varying(5000),
+  bu_contact_sso character varying(5000),
+  bu_contact_email character varying(5000),
+  bu_contact_name character varying(5000),
+  app_owner_email character varying(5000),
+  app_owner_role character varying(5000)
+)
+WITH (APPENDONLY=true, 
+  OIDS=FALSE
+)
+DISTRIBUTED BY (business_unit_id);
+
+ALTER TABLE app_master_db.apprepo  OWNER TO corp_it_updater;
+
+GRANT ALL ON TABLE app_master_db.apprepo TO corp_it_updater;
+
+GRANT SELECT ON TABLE app_master_db.apprepo TO corp_it_looker;

@@ -1,0 +1,45 @@
+drop table app_master_db.cmdb_relation_data;
+
+CREATE TABLE app_master_db.cmdb_relation_data
+(
+  
+	parent_asset_id 	character varying(1000),
+  
+	parent_asset_class 	character varying(1000),
+	related_asset_id 	character varying(1000),
+  
+	related_asset_class 	character varying(1000),
+ 
+	dependency 		character varying(1000),
+  
+	relationship_type 	character varying(1000)
+)
+
+WITH (APPENDONLY=true, 
+  OIDS=FALSE
+)
+
+DISTRIBUTED BY (parent_asset_id);
+
+drop table cmdb_relation_data_staging;
+
+CREATE TABLE cmdb_relation_data_staging
+(
+  
+	parent_asset_id 	character varying(1000),
+  
+	parent_asset_class 	character varying(1000),
+	related_asset_id 	character varying(1000),
+  
+	related_asset_class 	character varying(1000),
+ 
+	dependency 		character varying(1000),
+  
+	relationship_type 	character varying(1000)
+)
+
+WITH (APPENDONLY=true, 
+  OIDS=FALSE
+)
+
+DISTRIBUTED BY (parent_asset_id);

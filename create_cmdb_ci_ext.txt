@@ -1,0 +1,29 @@
+
+drop table edw.cmdb_ci_ext
+
+create table edw.cmdb_ci_ext (
+u_asset_id character varying(40),
+u_planned_retirement_date character varying(40),
+u_actual_retirement_date character varying(40),
+u_planned_migration_date character varying(40),
+u_actual_migration_date character varying(40),
+u_app_dev_category character varying(4000),
+u_app_src_code_developer character varying(4000),
+u_other_app_src_code_dev character varying(4000),
+u_urls character varying(4000),
+create_date timestamp without time zone DEFAULT current_timestamp,
+created_by character varying(40) DEFAULT 'Talend'
+)
+WITH (
+  OIDS=FALSE
+)
+DISTRIBUTED BY (u_asset_id);
+
+ALTER TABLE edw.cmdb_ci_ext
+  OWNER TO corp_it_updater;
+  
+GRANT ALL ON TABLE edw.cmdb_ci_ext TO corp_it_updater;
+
+GRANT SELECT ON TABLE edw.cmdb_ci_ext TO "502069800";
+
+GRANT SELECT ON TABLE edw.cmdb_ci_ext TO corp_it_looker;

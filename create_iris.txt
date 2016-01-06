@@ -1,0 +1,82 @@
+-- Table: app_master_db.iris
+
+-- DROP TABLE app_master_db.iris;
+
+CREATE TABLE app_master_db.iris
+(
+  parent_business character varying(8000),
+  business_segment character varying(8000),
+  sub_business character varying(8000),
+  itriskappid character varying(8000),
+  appsysrecordid character varying(8000),
+  app_name character varying(8000),
+  sso_manager character varying(8000),
+  manager_name character varying(8000),
+  description character varying(8000),
+  app_owner character varying(8000),
+  software_vendor character varying(8000),
+  software_version character varying(8000),
+  sox character varying(8000),
+  historical_criticality character varying(8000),
+  dns_name character varying(8000),
+  hosting_status character varying(8000),
+  hosting_vendor character varying(8000),
+  application_status character varying(8000),
+  sensitive_data character varying(8000),
+  availability_impact character varying(8000),
+  system_integrity character varying(8000),
+  critical_system character varying(8000),
+  internet_facing character varying(8000),
+  appmapping_status character varying(8000),
+  pii_employee_contractor character varying(8000),
+  pii_consumer character varying(8000),
+  pii_medical_records character varying(8000),
+  pii_personal_bank_account character varying(8000),
+  pii_credit_cards character varying(8000),
+  pii_ssn_govtid character varying(8000),
+  pii_special_data character varying(8000),
+  ip_business_critical character varying(8000),
+  ip_high_med_risk character varying(8000),
+  govt_classified character varying(8000),
+  govt_controlled_unclassified character varying(8000),
+  other_party_organization character varying(8000),
+  other_export_controlled character varying(8000),
+  fcial_reporting_sox character varying(8000),
+  fcial_reporting_nonsox character varying(8000),
+  credit_card character varying(8000),
+  product_quality character varying(8000),
+  security character varying(8000),
+  cfi_tier_hosting character varying(8000),
+  commercial_customer character varying(8000),
+  trans_sensitive_data_fcial character varying(8000),
+  trans_sensitive_data_reg character varying(8000),
+  trans_system_integrity_other character varying(8000),
+  software_configuration character varying(8000),
+  customer_contractual character varying(8000),
+  commercial_software character varying(8000),
+  capital_defined character varying(8000),
+  defined_critical_trading character varying(8000),
+  availability character varying(8000),
+  critical_defined character varying(8000),
+  tester character varying(8000),
+  objective character varying(8000),
+  external character varying(8000),
+  critical_date character varying(8000),
+  fisma character varying(8000),
+  dfars_ucti character varying(8000),
+  first_created_date character varying(8000),
+  last_updated_date character varying(8000),
+  last_updated_sso character varying(8000),
+  it_ops_critical character varying(8000)
+)
+WITH (APPENDONLY=true, 
+  OIDS=FALSE
+)
+DISTRIBUTED BY (itriskappid);
+
+
+ALTER TABLE app_master_db.iris OWNER TO corp_it_updater;
+
+GRANT ALL ON TABLE app_master_db.iris TO corp_it_updater;
+
+GRANT SELECT ON TABLE app_master_db.iris TO corp_it_looker;

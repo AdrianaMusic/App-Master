@@ -1,0 +1,11 @@
+-- Schema: app_master_db
+
+-- DROP SCHEMA app_master_db;
+
+CREATE SCHEMA app_master_db
+  AUTHORIZATION corp_it_updater;
+
+
+GRANT ALL ON SCHEMA app_master_db TO corp_it_updater;
+
+GRANT USAGE ON SCHEMA app_master_db TO corp_it_looker;

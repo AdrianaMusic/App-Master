@@ -1,0 +1,67 @@
+-- Table: app_master_db.apptracker
+-- DROP TABLE app_master_db.apptracker;
+
+CREATE TABLE app_master_db.apptracker
+(
+  entry character varying(8000),
+  application_name_mandatory character varying(8000),
+  application_descriptors_mandatory character varying(8000),
+  application_owner character varying(8000),
+  operations_owner character varying(8000),
+  enterprise_architect_contact character varying(8000),
+  url character varying(8000),
+  business_mandatory character varying(8000),
+  sub_business character varying(8000),
+  application_criticality character varying(8000),
+  number_of_users character varying(8000),
+  user_region character varying(8000),
+  data_center character varying(8000),
+  secondary_datacenter character varying(8000),
+  web_server character varying(8000),
+  web_server_os_type character varying(8000),
+  web_server_os_version character varying(8000),
+  application_server character varying(8000),
+  app_server_os_type character varying(8000),
+  app_server_os_version character varying(8000),
+  database_server character varying(8000),
+  database_os_type character varying(8000),
+  database_os_version character varying(8000),
+  database_type character varying(8000),
+  database_version character varying(8000),
+  internet_facing character varying(8000),
+  business_process character varying(8000),
+  regulated_data character varying(8000),
+  virtual character varying(8000),
+  application_structure character varying(8000),
+  comments_or_notes character varying(8000),
+  application_availability_tier character varying(8000),
+  decommissioning_year character varying(8000),
+  target_decommissioning_quarter character varying(8000),
+  decommissioning_status character varying(8000),
+  actual_decommissioning_quarter character varying(8000),
+  of_servers character varying(8000),
+  current_operational_status character varying(8000),
+  it_executive_owner character varying(8000),
+  data_risk_classification character varying(8000),
+  of_interfaces character varying(8000),
+  unique_code_required_by_some_businesses character varying(8000),
+  unique_app_id  character varying(8000),
+  application_type character varying(8000),
+  current_year_net_new  character varying(8000),
+  current_year_net_removed  character varying(8000),
+  migrate_to_cloud_year  character varying(8000),
+  target_cloud_migration_qtr  character varying(8000),
+  cloud_migration_status  character varying(8000),
+  actual_cloud_migration_qtr  character varying(8000), 
+  target_cloud_environment  character varying(8000)
+)
+WITH (APPENDONLY=true, 
+  OIDS=FALSE
+)
+DISTRIBUTED BY (application_descriptors_mandatory);
+
+ALTER TABLE app_master_db.apptracker OWNER TO corp_it_updater;
+
+GRANT ALL ON TABLE app_master_db.apptracker TO corp_it_updater;
+
+GRANT SELECT ON TABLE app_master_db.apptracker TO corp_it_looker;
